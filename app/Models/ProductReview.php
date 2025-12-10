@@ -22,4 +22,9 @@ class ProductReview extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function user()
+    {
+        return $this->transaction->belongsTo(User::class, 'user_id');
+    }
 }

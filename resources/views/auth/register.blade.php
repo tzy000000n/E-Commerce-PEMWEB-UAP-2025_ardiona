@@ -1,4 +1,24 @@
 <x-guest-layout>
+    <style>
+        /* Register page styling dengan warna navbar */
+        form label {
+            color: #374151 !important;
+        }
+        form input {
+            color: #374151 !important;
+            border-color: #d1d5db !important;
+        }
+        form input:focus {
+            border-color: #667eea !important;
+            ring-color: #667eea !important;
+        }
+        form a {
+            color: #374151 !important;
+        }
+        form a:hover {
+            color: #667eea !important;
+        }
+    </style>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -40,7 +60,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2" style="color: #374151;" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 

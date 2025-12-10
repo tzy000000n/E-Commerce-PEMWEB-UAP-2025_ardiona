@@ -1,0 +1,130 @@
+<x-app-layout>
+    <div class="py-4">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6">
+                    <h1 class="text-2xl font-bold mb-6">Detail Transaksi</h1>
+
+                    <div class="mb-6">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm text-gray-600">Kode Transaksi</p>
+                                <p class="font-semibold">{{ $transaction->code }}</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Status Pembayaran</p>
+                                <span class="inline-block px-3 py-1 text-sm rounded-full {{ $transaction->payment_status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
+                                    {{ $transaction->payment_status === 'paid' ? 'Lunas' : 'Belum Bayar' }}
+                                </span>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Tanggal</p>
+                                <p class="font-semibold">{{ $transaction->created_at->format('d M Y H:i') }}</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Nomor Resi</p>
+                                <p class="font-semibold">{{ $transaction->tracking_number ?? '-' }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-4">Alamat Pengiriman</h3>
+                        <p class="text-gray-700">{{ $transaction->address }}</p>
+                        <p class="text-gray-700">{{ $transaction->city }}, {{ $transaction->postal_code }}</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-4">Produk</h3>
+                        @foreach($transaction->transactionDetails as $detail)
+                            @if($detail->product)
+                                <div class="flex gap-4 mb-4 p-4 bg-gray-50 rounded">
+                                    <div class="product-image-zoom rounded" style="width: 80px; height: 80px; overflow: hidden; flex-shrink: 0;">
+                                        <img src="{{ asset($detail->product->productImages->first()->image ?? 'https://via.placeholder.com/80') }}" 
+                                            alt="{{ $detail->product->name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold">{{ $detail->product->name }}</h4>
+                                        <p class="text-sm text-gray-600">{{ $detail->qty }} x Rp {{ number_format($detail->product->price, 0, ',', '.') }}</p>
+                                        <p class="font-bold text-indigo-600">Rp {{ number_format($detail->subtotal, 0, ',', '.') }}</p>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="flex gap-4 mb-4 p-4 bg-gray-50 rounded">
+                                    <div class="rounded bg-gray-200" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                                        <span class="text-gray-400 text-xs">Produk Dihapus</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-500">Produk tidak tersedia</h4>
+                                        <p class="text-sm text-gray-600">{{ $detail->qty }} item</p>
+                                        <p class="font-bold text-indigo-600">Rp {{ number_format($detail->subtotal, 0, ',', '.') }}</p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+
+                    <div class="p-4 bg-gray-50 rounded">
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>Subtotal</span>
+                                <span>Rp {{ number_format($transaction->transactionDetails->sum('subtotal'), 0, ',', '.') }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Ongkir ({{ $transaction->shipping_type }})</span>
+                                <span>Rp {{ number_format($transaction->shipping_cost, 0, ',', '.') }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Pajak</span>
+                                <span>Rp {{ number_format($transaction->tax, 0, ',', '.') }}</span>
+                            </div>
+                            <div class="flex justify-between font-bold text-lg border-t pt-2">
+                                <span>Total</span>
+                                <span class="text-indigo-600">Rp {{ number_format($transaction->grand_total, 0, ',', '.') }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if($transaction->payment_status === 'unpaid')
+                        @php
+                            $va = \App\Models\VirtualAccount::where('transaction_id', $transaction->id)
+                                ->where('status', 'pending')
+                                ->first();
+                        @endphp
+                        
+                        @if($va)
+                            <div class="mt-6">
+                                <a href="{{ route('payment.index', ['va_number' => $va->va_number]) }}" 
+                                    class="block w-full text-center px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 font-semibold">
+                                    Bayar Sekarang
+                                </a>
+                                
+                                <div class="mt-4 p-4 bg-indigo-50 border-2 border-indigo-500 rounded-lg">
+                                    <p class="text-sm text-gray-600 mb-2 text-center">Kode Virtual Account:</p>
+                                    <div class="flex items-center justify-center gap-3">
+                                        <p id="va-code" class="text-2xl font-bold text-indigo-600 tracking-wider">{{ $va->va_number }}</p>
+                                        <button type="button" onclick="copyVACode()" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm font-semibold">
+                                            Salin
+                                        </button>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-2 text-center">Salin kode VA untuk melakukan pembayaran</p>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyVACode() {
+            const vaText = document.getElementById('va-code').textContent;
+            navigator.clipboard.writeText(vaText).then(() => {
+                alert('Kode VA berhasil disalin!');
+            }).catch(err => {
+                console.error('Gagal menyalin:', err);
+            });
+        }
+    </script>
+</x-app-layout>
