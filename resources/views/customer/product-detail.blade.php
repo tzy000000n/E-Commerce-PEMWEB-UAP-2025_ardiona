@@ -9,19 +9,21 @@
                         <div>
                             @if($product->productImages->count() > 0)
                                 <div class="product-image-zoom rounded-lg mb-4" style="overflow: hidden; height: 400px;">
-                                    <img src="{{ asset($product->productImages->where('is_thumbnail', true)->first()->image ?? $product->productImages->first()->image) }}" 
+                                    <img src="{{ asset($product->productImages->where('is_thumbnail', true)->first()->image ?? $product->productImages->first()->image) }}"
                                         alt="{{ $product->name }}" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div class="grid grid-cols-4 gap-2">
                                     @foreach($product->productImages as $image)
                                         <div class="product-image-zoom rounded" style="overflow: hidden;">
-                                            <img src="{{ asset($image->image) }}" alt="{{ $product->name }}" class="w-full h-20 object-cover">
+                                            <img src="{{ asset($image->image) }}" alt="{{ $product->name }}"
+                                                class="w-full h-20 object-cover">
                                         </div>
                                     @endforeach
                                 </div>
                             @else
                                 <div class="product-image-zoom rounded-lg" style="overflow: hidden; height: 400px;">
-                                    <img src="https://via.placeholder.com/500x500.png?text=No+Image" alt="{{ $product->name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="https://via.placeholder.com/500x500.png?text=No+Image"
+                                        alt="{{ $product->name }}" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                             @endif
                         </div>
@@ -29,27 +31,47 @@
                         <!-- Product Info -->
                         <div>
                             <h1 class="text-3xl font-bold mb-4">{{ $product->name }}</h1>
-                            <p class="text-3xl font-bold text-indigo-600 mb-4">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                            <p class="text-3xl font-bold text-indigo-600 mb-2">Rp
+                                {{ number_format($product->price, 0, ',', '.') }}
+                            </p>
                             
+                            <!-- Rating Summary -->
+                            <div class="flex items-center mb-4">
+                                <div class="flex text-yellow-400 text-sm">
+                                    @foreach(range(1, 5) as $i)
+                                        <span>{{ $i <= round($product->product_reviews_avg_rating) ? '★' : '☆' }}</span>
+                                    @endforeach
+                                </div>
+                                <span class="text-sm text-gray-600 ml-2">
+                                    {{ number_format($product->product_reviews_avg_rating, 1) }} 
+                                    ({{ $product->product_reviews_count }} Ulasan)
+                                </span>
+                            </div>
+
                             <div class="mb-4">
-                                <p class="text-gray-600"><span class="font-semibold">Kategori:</span> {{ $product->productCategory->name }}</p>
-                                <p class="text-gray-600"><span class="font-semibold">Kondisi:</span> {{ ucfirst($product->condition) }}</p>
-                                <p class="text-gray-600"><span class="font-semibold">Berat:</span> {{ $product->weight }}g</p>
-                                <p class="text-gray-600"><span class="font-semibold">Stok:</span> {{ $product->stock }}</p>
+                                <p class="text-gray-600"><span class="font-semibold">Kategori:</span>
+                                    {{ $product->productCategory->name }}</p>
+                                <p class="text-gray-600"><span class="font-semibold">Kondisi:</span>
+                                    {{ ucfirst($product->condition) }}</p>
+                                <p class="text-gray-600"><span class="font-semibold">Berat:</span>
+                                    {{ $product->weight }}g</p>
+                                <p class="text-gray-600"><span class="font-semibold">Stok:</span> {{ $product->stock }}
+                                </p>
                             </div>
 
                             <div class="mb-6">
-                                <h3 class="font-semibold mb-2">Deskripsi:</h3>
-                                <p class="text-gray-700">{{ $product->description }}</p>
+                                <h3 class="font-semibold mb-2">{{ __('app.description') }}:</h3>
+                                <p class="text-gray-700">{{ $product->localized_description }}</p>
                             </div>
 
                             @auth
                                 @if($product->stock > 0)
                                     <form action="{{ route('checkout.index') }}" method="GET" class="flex gap-4">
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <input type="number" name="qty" value="1" min="1" max="{{ $product->stock }}" 
+                                        <input type="number" name="qty" value="1" min="1" max="{{ $product->stock }}"
                                             class="w-20 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                        <button type="submit" class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold">
+                                        <button type="submit"
+                                            class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold">
                                             Beli Sekarang
                                         </button>
                                     </form>
@@ -57,7 +79,8 @@
                                     <p class="text-red-600 font-semibold">Stok Habis</p>
                                 @endif
                             @else
-                                <a href="{{ route('login') }}" class="block text-center px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold">
+                                <a href="{{ route('login') }}"
+                                    class="block text-center px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold">
                                     Login untuk Membeli
                                 </a>
                             @endauth

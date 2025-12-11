@@ -2,26 +2,26 @@
 
 return [
     // Navigation
-    'home' => 'BERANDA',
-    'shop' => 'BELANJA',
-    'admin' => 'ADMIN',
-    'seller' => 'PENJUAL',
-    'history' => 'RIWAYAT',
-    'wallet' => 'DOMPET',
-    'register_store' => 'DAFTAR TOKO',
+    'home' => 'Beranda',
+    'shop' => 'Belanja',
+    'admin' => 'Admin',
+    'seller' => 'Penjual',
+    'history' => 'Riwayat',
+    'wallet' => 'Dompet',
+    'register_store' => 'Buka Toko',
     'login' => 'Masuk',
     'register' => 'Daftar',
     'profile' => 'Profil',
     'logout' => 'Keluar',
-    
+
     // Home Page
     'premium_streetwear' => 'Koleksi Streetwear Premium',
     'shop_now' => 'Belanja Sekarang',
     'featured_products' => 'Produk Unggulan',
     'discover_collection' => 'Temukan koleksi terbaru kami',
-    'show_all_products' => 'Tampilkan Semua Produk',
+    'show_all_products' => 'Lihat Semua Produk',
     'stock' => 'Stok',
-    
+
     // Shop Page
     'filter_products' => 'Filter Produk',
     'search_product' => 'Cari Produk',
@@ -31,7 +31,7 @@ return [
     'search' => 'Cari',
     'showing_products' => 'Menampilkan :count produk',
     'no_products' => 'Tidak ada produk ditemukan',
-    
+
     // Product Detail
     'product_description' => 'Deskripsi Produk',
     'condition' => 'Kondisi',
@@ -41,7 +41,7 @@ return [
     'store' => 'Toko',
     'buy_now' => 'Beli Sekarang',
     'out_of_stock' => 'Stok Habis',
-    
+
     // Checkout
     'checkout' => 'Checkout',
     'product' => 'Produk',
@@ -51,13 +51,14 @@ return [
     'payment_method' => 'Metode Pembayaran',
     'wallet_balance' => 'Saldo Dompet',
     'process_order' => 'Proses Pesanan',
-    
+
     // Wallet
-    'topup_wallet' => 'Top Up Dompet',
+    'topup_wallet' => 'Isi Saldo Dompet',
     'current_balance' => 'Saldo Saat Ini',
     'topup_amount' => 'Jumlah Top Up',
     'topup_now' => 'Top Up Sekarang',
-    
+    'min_topup' => 'Min Rp 10.000',
+
     // History
     'transaction_history' => 'Riwayat Transaksi',
     'transaction_code' => 'Kode Transaksi',
@@ -70,18 +71,158 @@ return [
     'shipped' => 'Dikirim',
     'completed' => 'Selesai',
     'cancelled' => 'Dibatalkan',
-    
+
     // Footer
-    'established_by' => 'Est. by Dion & Kheiza',
-    'all_rights_reserved' => 'Semua hak dilindungi.',
-    
+    'established_by' => 'Est. oleh Dion & Kheiza',
+    'all_rights_reserved' => 'Hak cipta dilindungi.',
+
     // Messages
     'success' => 'Berhasil',
     'error' => 'Gagal',
-    'welcome' => 'Selamat datang',
-    
-    // Search
-    'search_products' => 'Cari produk...',
-    'all_categories' => 'Semua Kategori',
-    'close' => '✕',
+    'welcome' => 'Selamat Datang',
+
+    // Withdrawal
+    'balance_and_withdraw' => 'Saldo & Penarikan',
+    'active_balance' => 'Saldo Aktif',
+    'request_withdrawal' => 'Tarik Saldo',
+    'withdrawal_amount' => 'Jumlah Penarikan',
+    'min_withdrawal' => 'Min Rp 50.000',
+    'bank_name' => 'Nama Bank',
+    'select_bank' => 'Pilih Bank',
+    'account_number' => 'Nomor Rekening',
+    'account_name' => 'Nama Pemilik Rekening',
+    'withdraw_funds' => 'Tarik Dana',
+    'withdrawal_history' => 'Riwayat Penarikan',
+    'amount' => 'Jumlah',
+    'destination' => 'Tujuan',
+    'approved' => 'Disetujui',
+    'rejected' => 'Ditolak',
+    'no_withdrawal_history' => 'Belum ada riwayat penarikan',
+
+    // Order Management
+    'order_management' => 'Manajemen Pesanan',
+    'order_id' => 'ID Pesanan',
+    'customer' => 'Pelanggan',
+    'items' => 'Item',
+    'total_price' => 'Total Harga',
+    'shipping_status' => 'Status Pengiriman',
+    'tracking_number' => 'Nomor Resi',
+    'update_tracking' => 'Update Nomor Resi',
+    'no_orders' => 'Tidak ada pesanan ditemukan',
+    'order_details' => 'Detail Pesanan',
+    'shipping_info' => 'Informasi Pengiriman',
+    'shipping_address' => 'Alamat Pengiriman',
+    'shipping_type' => 'Jenis Pengiriman',
+    'shipping_cost' => 'Biaya Pengiriman',
+
+    // Admin
+    'admin_dashboard' => 'Dashboard Admin',
+    'store_verification' => 'Verifikasi Toko',
+    'user_management' => 'Manajemen Pengguna',
+    'store_management' => 'Manajemen Toko',
+    'withdrawal_management' => 'Manajemen Penarikan',
+    'verify_store' => 'Verifikasi Toko',
+    'approve' => 'Setujui',
+    'reject' => 'Tolak',
+    'confirm_approve' => 'Setujui penarikan ini?',
+    'confirm_reject' => 'Tolak penarikan ini? Saldo akan dikembalikan.',
+    'processed' => 'Diproses',
+    'owner' => 'Pemilik',
+    'confirm_reject_store' => 'Yakin tolak toko ini?',
+    'no_unverified_stores' => 'Tidak ada toko yang menunggu verifikasi',
+    'list_users' => 'Daftar Semua Pengguna',
+    'list_stores' => 'Daftar Semua Toko',
+    'has_store' => 'Punya Toko',
+    'registered' => 'Terdaftar',
+    'no_users' => 'Tidak ada pengguna',
+    'verified' => 'Terverifikasi',
+    'waiting_verification' => 'Menunggu Verifikasi',
+    'no_logo' => 'Tidak Ada Logo',
+    'role' => 'Peran',
+    'name' => 'Nama',
+    'email' => 'Email',
+    'id' => 'ID',
+    'logo' => 'Logo',
+
+    // Checkout & Payment
+    'checkout_title' => 'Checkout',
+    'full_address' => 'Alamat Lengkap',
+    'city' => 'Kota',
+    'postal_code' => 'Kode Pos',
+    'select_shipping' => 'Pilih Pengiriman',
+    'regular' => 'Reguler',
+    'express' => 'Ekspres',
+    'same_day' => 'Same Day',
+    'wallet_method' => 'Saldo Dompet',
+    'your_balance' => 'Saldo Anda',
+    'va_method' => 'Virtual Account',
+    'pay_via_bank' => 'Bayar via transfer bank',
+    'order_summary' => 'Ringkasan Pesanan',
+    'subtotal' => 'Subtotal',
+    'shipping_fee' => 'Biaya Pengiriman',
+    'tax' => 'Pajak',
+    'pay_process' => 'Proses Pembayaran',
+
+    // History Detail
+    'transaction_detail' => 'Detail Transaksi',
+    'payment_status' => 'Status Pembayaran',
+    'paid' => 'Lunas',
+    'unpaid' => 'Belum Bayar',
+    'products' => 'Produk',
+    'item_deleted' => 'Produk Dihapus',
+    'product_unavailable' => 'Produk tidak tersedia',
+    'give_review' => 'Beri Ulasan',
+    'rating' => 'Penilaian',
+    'your_review' => 'Ulasan Anda',
+    'write_experience' => 'Tulis pengalaman Anda...',
+    'cancel' => 'Batal',
+    'submit_review' => 'Kirim Ulasan',
+    'review_sent' => 'Ulasan Terkirim',
+    'pay_now' => 'Bayar Sekarang',
+    'va_code' => 'Kode Virtual Account',
+    'copy_va_desc' => 'Salin kode VA untuk melakukan pembayaran',
+    'copy' => 'Salin',
+
+    // Payment Confirmation
+    'payment_confirmation' => 'Konfirmasi Pembayaran',
+    'va_review_code' => 'Kode Review VA',
+    'transaction_type' => 'Tipe Transaksi',
+    'payment_order' => 'Pembayaran Pesanan',
+    'bill_total' => 'Total Tagihan',
+    'enter_payment_amount' => 'Masukkan Nominal Pembayaran',
+    'simulation_info' => 'Simulasi pembayaran: Masukkan nominal sesuai tagihan',
+    'cancel_return' => 'Batal & Kembali ke Beranda',
+
+    // Wallet Top Up
+    'topup_instructions' => 'Cara Top Up:',
+    'topup_step_1' => 'Masukkan jumlah yang ingin di-top up',
+    'topup_step_2' => 'Sistem akan membuat Virtual Account',
+    'topup_step_3' => 'Transfer sesuai nominal ke VA yang diberikan',
+    'topup_step_4' => 'Saldo otomatis bertambah setelah pembayaran dikonfirmasi',
+
+    // Store Register
+    'register_store_title' => 'Daftar Sebagai Penjual',
+    'store_name' => 'Nama Toko',
+    'store_logo' => 'Logo Toko',
+    'about_store' => 'Tentang Toko',
+    'phone_number' => 'Nomor Telepon',
+    'register_store_btn' => 'Daftar Toko',
+
+    // Category Management
+    'no_categories' => 'Tidak ada kategori ditemukan',
+    'confirm_delete' => 'Apakah Anda yakin ingin menghapus ini?',
+    'delete' => 'Hapus',
+    'edit' => 'Edit',
+    'add_category' => 'Tambah Kategori',
+    'icon' => 'Ikon',
+    'update_category' => 'Update Kategori',
+    'category_name' => 'Nama Kategori',
+    'add_product' => 'Tambah Produk',
+    'financial_dashboard' => 'Dashboard Keuangan',
+    'total_balance' => 'Total Saldo',
+    'description' => 'Deskripsi',
+    'type' => 'Tipe',
+    'income' => 'Pemasukan',
+    'expense' => 'Pengeluaran',
+    'no_transaction_history' => 'Belum ada riwayat transaksi',
 ];

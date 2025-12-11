@@ -121,13 +121,32 @@
                                     </div>
                                     <div class="p-4">
                                         <h3 class="font-bold text-lg mb-2 truncate text-gray-800">{{ $product->name }}</h3>
-                                        <p class="text-sm text-gray-500 mb-3">{{ $product->short_description }}</p>
+                                        <p class="text-sm text-gray-500 mb-3">{{Str::limit($product->localized_short_description, 100) }}</p>
+                                        <!-- Rating -->
+                                        <div class="flex items-center mb-2">
+                                            <div class="flex text-yellow-400 text-sm">
+                                                @php
+                                                    $rating = $product->product_reviews_avg_rating ?? 0;
+                                                @endphp
+                                                @foreach(range(1, 5) as $i)
+                                                    <span>{{ $i <= round($rating) ? '★' : '☆' }}</span>
+                                                @endforeach
+                                            </div>
+                                            <span class="text-xs text-gray-500 ml-1">({{ $product->product_reviews_count }})</span>
+                                        </div>
+
                                         <div class="flex items-center justify-between">
                                             <p class="text-2xl font-bold price-tag">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                                         </div>
-                                        <div class="mt-3">
+                                        <div class="mt-3 flex justify-between items-center">
                                             <span class="text-xs text-gray-500">
                                                 {{ __('app.stock') }}: {{ $product->stock }}
+                                            </span>
+                                            <span class="text-xs text-gray-400 font-semibold flex items-center gap-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" />
+                                                </svg>
+                                                {{ $product->store->name }}
                                             </span>
                                         </div>
                                     </div>
@@ -141,7 +160,7 @@
                     </div>
 
                     <!-- Pagination -->
-                    <div class="mt-8">
+                    <div class="mt-8 pb-10 px-2 lg:px-0">
                         {{ $products->links() }}
                     </div>
                 </div>

@@ -19,12 +19,9 @@ class MemberMiddleware
             return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu');
         }
 
-        if (auth()->user()->role !== 'member') {
-            $message = auth()->user()->role === 'admin' 
-                ? 'Admin tidak dapat membeli produk. Silakan gunakan akun customer.'
-                : 'Seller tidak dapat membeli produk. Silakan gunakan akun customer.';
-            
-            return redirect()->route('home')->with('error', $message);
+        // Allow both Member and Admin to access these routes
+        if (!in_array(auth()->user()->role, ['member', 'admin'])) {
+            return redirect()->route('home')->with('error', 'Seller tidak dapat membeli produk. Silakan gunakan akun customer.');
         }
 
         return $next($request);

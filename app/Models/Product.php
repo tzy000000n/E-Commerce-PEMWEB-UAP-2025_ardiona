@@ -13,7 +13,9 @@ class Product extends Model
         'name',
         'slug',
         'short_description',
+        'short_description_id',
         'description',
+        'description_id',
         'condition',
         'price',
         'weight',
@@ -45,5 +47,21 @@ class Product extends Model
     public function productReviews()
     {
         return $this->hasMany(ProductReview::class);
+    }
+
+    public function getLocalizedDescriptionAttribute()
+    {
+        if (app()->getLocale() == 'id' && !empty($this->description_id)) {
+            return $this->description_id;
+        }
+        return $this->description;
+    }
+
+    public function getLocalizedShortDescriptionAttribute()
+    {
+        if (app()->getLocale() == 'id' && !empty($this->short_description_id)) {
+            return $this->short_description_id;
+        }
+        return $this->short_description;
     }
 }

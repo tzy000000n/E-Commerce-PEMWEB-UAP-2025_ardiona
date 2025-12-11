@@ -23,7 +23,7 @@
 
                     <form action="{{ route('seller.products.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        
+
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Nama Produk</label>
@@ -46,8 +46,28 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Singkat
+                                    (EN)</label>
+                                <input type="text" name="short_description"
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Singkat
+                                    (ID)</label>
+                                <input type="text" name="short_description_id"
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi (EN)</label>
                                 <textarea name="description" rows="4" required
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi (ID)</label>
+                                <textarea name="description_id" rows="4"
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
                             </div>
 
@@ -84,15 +104,18 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Gambar Produk</label>
                                 <input type="file" name="images[]" multiple accept="image/*"
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                <p class="text-sm text-gray-500 mt-1">Upload beberapa gambar (gambar pertama akan jadi thumbnail)</p>
+                                <p class="text-sm text-gray-500 mt-1">Upload beberapa gambar (gambar pertama akan jadi
+                                    thumbnail)</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4 mt-6">
-                            <button type="submit" class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold" onclick="console.log('Button clicked')">
+                            <button type="submit"
+                                class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold"
+                                onclick="console.log('Button clicked')">
                                 Simpan Produk
                             </button>
-                            <a href="{{ route('seller.products.index') }}" 
+                            <a href="{{ route('seller.products.index') }}"
                                 class="px-6 py-3 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 font-semibold text-center">
                                 Batal
                             </a>

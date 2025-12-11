@@ -87,7 +87,7 @@
         </script>
     </head>
     <body class="font-sans antialiased" style="background: white; min-height: 100vh;">
-        <div class="min-h-screen" style="padding-top: 64px; background: white;">
+        <div class="min-h-screen" style="padding-top: {{ request()->routeIs('home') ? '0' : '64px' }}; background: white;">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

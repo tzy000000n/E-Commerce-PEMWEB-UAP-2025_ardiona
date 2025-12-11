@@ -1,0 +1,77 @@
+﻿
+Warning: Module "mysqli" is already loaded in Unknown on line 0
+
+  GET|HEAD        / ......................................................................................................... home ΓÇ║ HomeController@index
+  POST            _boost/browser-logs ................................................................................................ boost.browser-logs
+  GET|HEAD        admin/stores ............................................................... admin.stores.index ΓÇ║ Admin\UserManagementController@stores
+  GET|HEAD        admin/users .................................................................. admin.users.index ΓÇ║ Admin\UserManagementController@index
+  GET|HEAD        admin/verification ................................................. admin.verification.index ΓÇ║ Admin\StoreVerificationController@index
+  POST            admin/verification/{id}/approve ................................ admin.verification.approve ΓÇ║ Admin\StoreVerificationController@approve
+  POST            admin/verification/{id}/reject ................................... admin.verification.reject ΓÇ║ Admin\StoreVerificationController@reject
+  GET|HEAD        admin/withdrawals .......................................................... admin.withdrawals.index ΓÇ║ Admin\WithdrawalController@index
+  PUT             admin/withdrawals/{id} ............................................. admin.withdrawals.update ΓÇ║ Admin\WithdrawalController@updateStatus
+  GET|HEAD        checkout ........................................................................... checkout.index ΓÇ║ Customer\CheckoutController@index
+  POST            checkout ........................................................................... checkout.store ΓÇ║ Customer\CheckoutController@store
+  GET|HEAD        confirm-password ........................................................... password.confirm ΓÇ║ Auth\ConfirmablePasswordController@show
+  POST            confirm-password ............................................................................. Auth\ConfirmablePasswordController@store
+  GET|HEAD        dashboard ................................................................................................................... dashboard
+  POST            email/verification-notification ................................ verification.send ΓÇ║ Auth\EmailVerificationNotificationController@store
+  GET|HEAD        forgot-password ............................................................ password.request ΓÇ║ Auth\PasswordResetLinkController@create
+  POST            forgot-password ............................................................... password.email ΓÇ║ Auth\PasswordResetLinkController@store
+  GET|HEAD        history .......................................................................... history.index ΓÇ║ Customer\TransactionController@index
+  GET|HEAD        history/{id} ....................................................................... history.show ΓÇ║ Customer\TransactionController@show
+  GET|HEAD        language/{locale} ..................................................................................................... language.switch
+  GET|HEAD        login .............................................................................. login ΓÇ║ Auth\AuthenticatedSessionController@create
+  POST            login ....................................................................................... Auth\AuthenticatedSessionController@store
+  POST            logout ........................................................................... logout ΓÇ║ Auth\AuthenticatedSessionController@destroy
+  PUT             password ............................................................................. password.update ΓÇ║ Auth\PasswordController@update
+  GET|HEAD        payment ....................................................................................... payment.index ΓÇ║ PaymentController@index
+  POST            payment/check ................................................................................. payment.check ΓÇ║ PaymentController@check
+  POST            payment/confirm ........................................................................... payment.confirm ΓÇ║ PaymentController@confirm
+  GET|HEAD        payment/confirm/{va_number} ...................................................... payment.show_confirm ΓÇ║ PaymentController@showConfirm
+  GET|HEAD        product/{slug} ......................................................................... product.show ΓÇ║ Customer\ProductController@show
+  GET|HEAD        profile ......................................................................................... profile.edit ΓÇ║ ProfileController@edit
+  PATCH           profile ..................................................................................... profile.update ΓÇ║ ProfileController@update
+  DELETE          profile ................................................................................... profile.destroy ΓÇ║ ProfileController@destroy
+  GET|HEAD        register .............................................................................. register ΓÇ║ Auth\RegisteredUserController@create
+  POST            register .......................................................................................... Auth\RegisteredUserController@store
+  POST            reset-password ...................................................................... password.store ΓÇ║ Auth\NewPasswordController@store
+  GET|HEAD        reset-password/{token} ............................................................. password.reset ΓÇ║ Auth\NewPasswordController@create
+  POST            reviews ........................................................................ reviews.store ΓÇ║ Customer\ProductReviewController@store
+  GET|HEAD        seller/balance .................................................................. seller.balance.index ΓÇ║ Seller\BalanceController@index
+  GET|HEAD        seller/categories ........................................................... seller.categories.index ΓÇ║ Seller\CategoryController@index
+  POST            seller/categories ........................................................... seller.categories.store ΓÇ║ Seller\CategoryController@store
+  GET|HEAD        seller/categories/create .................................................. seller.categories.create ΓÇ║ Seller\CategoryController@create
+  GET|HEAD        seller/categories/{category} .................................................. seller.categories.show ΓÇ║ Seller\CategoryController@show
+  PUT|PATCH       seller/categories/{category} .............................................. seller.categories.update ΓÇ║ Seller\CategoryController@update
+  DELETE          seller/categories/{category} ............................................ seller.categories.destroy ΓÇ║ Seller\CategoryController@destroy
+  GET|HEAD        seller/categories/{category}/edit ............................................. seller.categories.edit ΓÇ║ Seller\CategoryController@edit
+  GET|HEAD        seller/orders ...................................................................... seller.orders.index ΓÇ║ Seller\OrderController@index
+  GET|HEAD        seller/orders/{id} ................................................................... seller.orders.show ΓÇ║ Seller\OrderController@show
+  PUT             seller/orders/{id} ............................................................... seller.orders.update ΓÇ║ Seller\OrderController@update
+  GET|HEAD        seller/products ................................................................ seller.products.index ΓÇ║ Seller\ProductController@index
+  POST            seller/products ................................................................ seller.products.store ΓÇ║ Seller\ProductController@store
+  GET|HEAD        seller/products/create ....................................................... seller.products.create ΓÇ║ Seller\ProductController@create
+  DELETE          seller/products/image/{id} ........................................ seller.products.image.delete ΓÇ║ Seller\ProductController@deleteImage
+  PATCH           seller/products/image/{id}/thumbnail .......................... seller.products.image.thumbnail ΓÇ║ Seller\ProductController@setThumbnail
+  GET|HEAD        seller/products/{product} ........................................................ seller.products.show ΓÇ║ Seller\ProductController@show
+  PUT|PATCH       seller/products/{product} .................................................... seller.products.update ΓÇ║ Seller\ProductController@update
+  DELETE          seller/products/{product} .................................................. seller.products.destroy ΓÇ║ Seller\ProductController@destroy
+  GET|HEAD        seller/products/{product}/edit ................................................... seller.products.edit ΓÇ║ Seller\ProductController@edit
+  GET|HEAD        seller/profile ........................................................................... seller.profile ΓÇ║ Seller\StoreController@edit
+  PUT             seller/profile .................................................................. seller.profile.update ΓÇ║ Seller\StoreController@update
+  DELETE          seller/profile ................................................................ seller.profile.destroy ΓÇ║ Seller\StoreController@destroy
+  GET|HEAD        seller/withdrawals ....................................................... seller.withdrawals.index ΓÇ║ Seller\WithdrawalController@index
+  POST            seller/withdrawals ....................................................... seller.withdrawals.store ΓÇ║ Seller\WithdrawalController@store
+  GET|HEAD        shop ...................................................................................................... shop ΓÇ║ ShopController@index
+  GET|HEAD        storage/{path} .......................................................................................................... storage.local
+  GET|HEAD        store/register ......................................................................... store.register ΓÇ║ Seller\StoreController@create
+  POST            store/register ............................................................................. store.store ΓÇ║ Seller\StoreController@store
+  GET|HEAD        up .................................................................................................................................... 
+  GET|HEAD        verify-email ............................................................. verification.notice ΓÇ║ Auth\EmailVerificationPromptController
+  GET|HEAD        verify-email/{id}/{hash} ............................................................. verification.verify ΓÇ║ Auth\VerifyEmailController
+  GET|HEAD        wallet/topup ........................................................................... wallet.topup ΓÇ║ Customer\WalletController@topup
+  POST            wallet/topup ................................................................ wallet.topup.store ΓÇ║ Customer\WalletController@storeTopup
+
+                                                                                                                                      Showing [71] routes
+

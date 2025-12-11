@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
         // Hapus produk lama terlebih dahulu (delete child dulu, baru parent)
         ProductImage::query()->delete();
         Product::query()->delete();
-        
+
         $products = [
             // DION'S STORE (store_id = 1) - Outerwear & T-Shirts
             [
@@ -77,10 +77,10 @@ class ProductSeeder extends Seeder
                 'stock' => 45,
                 'image' => 'images/products/tshirts/renaissance-washed.jpg',
             ],
-            
-            // KHEIZA'S STORE (store_id = 2) - Bottoms & Accessories
+
+            // KHEIZA'S STORE Moved to DION (Request: semua gambar ke dion dulu)
             [
-                'store_id' => 2,
+                'store_id' => 1, // Changed from 2
                 'product_category_id' => 3,
                 'name' => 'DK Brutalist Concrete Tech-Pants',
                 'short_description' => 'Concrete Tech Trousers',
@@ -92,7 +92,7 @@ class ProductSeeder extends Seeder
                 'image' => 'images/products/bottoms/brutalist-concrete.jpg',
             ],
             [
-                'store_id' => 2,
+                'store_id' => 1, // Changed from 2
                 'product_category_id' => 3,
                 'name' => 'Wasteland Grunge Cargo',
                 'short_description' => 'Shadow Camo Cargo',
@@ -104,7 +104,7 @@ class ProductSeeder extends Seeder
                 'image' => 'images/products/bottoms/wasteland-cargo.jpg',
             ],
             [
-                'store_id' => 2,
+                'store_id' => 1, // Changed from 2
                 'product_category_id' => 3,
                 'name' => 'DK Obsidian Panel Leather Pants',
                 'short_description' => 'Panel Leather Pants',
@@ -116,7 +116,7 @@ class ProductSeeder extends Seeder
                 'image' => 'images/products/bottoms/obsidian-panel.jpg',
             ],
             [
-                'store_id' => 2,
+                'store_id' => 1, // Changed from 2
                 'product_category_id' => 4,
                 'name' => 'DK Owners Club Varsity Cap',
                 'short_description' => 'Owners Club Cap',
@@ -128,7 +128,7 @@ class ProductSeeder extends Seeder
                 'image' => 'images/products/accessories/owners-club-cap.jpg',
             ],
             [
-                'store_id' => 2,
+                'store_id' => 1, // Changed from 2
                 'product_category_id' => 4,
                 'name' => 'DK Shadow Camo Beanie',
                 'short_description' => 'Dark Camo Beanie',
@@ -140,7 +140,7 @@ class ProductSeeder extends Seeder
                 'image' => 'images/products/accessories/shadow-camo-beanie.jpg',
             ],
             [
-                'store_id' => 2,
+                'store_id' => 1, // Changed from 2
                 'product_category_id' => 4,
                 'name' => 'Rebel Silver Wallet Chain',
                 'short_description' => 'Gothic Wallet Chain',
@@ -150,6 +150,32 @@ class ProductSeeder extends Seeder
                 'weight' => 200,
                 'stock' => 40,
                 'image' => 'images/products/accessories/rebel-wallet-chain.jpg',
+            ],
+
+            // KHEIZA NEW PRODUCTS (Store 2)
+            [
+                'store_id' => 2,
+                'product_category_id' => 1, // Outerwear/Sweaters
+                'name' => 'Cream "Dust La Stella" Sweater',
+                'short_description' => 'Textured Cream Knit',
+                'description' => 'Premium oversized cream sweater featuring embossed "Dust La Stella" typography. Soft cotton blend for maximum comfort.',
+                'condition' => 'new',
+                'price' => 899000,
+                'weight' => 500,
+                'stock' => 50,
+                'image' => 'images/products/kheiza/white-sweater.png',
+            ],
+            [
+                'store_id' => 2,
+                'product_category_id' => 1, // Outerwear/Sweaters
+                'name' => 'Black "Dust La Stella" Knit',
+                'short_description' => 'Black Graphic Knit',
+                'description' => 'Signature black knitwear with contrasting white "Dust La Stella" script embroidery. A versatile piece for your daily rotation.',
+                'condition' => 'new',
+                'price' => 899000,
+                'weight' => 500,
+                'stock' => 50,
+                'image' => 'images/products/kheiza/black-sweater.png',
             ],
         ];
 

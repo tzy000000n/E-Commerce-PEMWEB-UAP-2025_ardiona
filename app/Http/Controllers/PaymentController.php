@@ -21,21 +21,26 @@ class PaymentController extends Controller
             'va_number' => 'required|string',
         ]);
 
+        return redirect()->route('payment.show_confirm', ['va_number' => $request->va_number]);
+    }
+
+    public function showConfirm($va_number)
+    {
         $virtualAccount = VirtualAccount::with(['user', 'transaction'])
-            ->where('va_number', $request->va_number)
+            ->where('va_number', $va_number)
             ->where('user_id', auth()->id())
             ->first();
 
         if (!$virtualAccount) {
-            return back()->with('error', 'Kode VA tidak ditemukan atau bukan milik Anda');
+            return redirect()->route('payment.index')->with('error', 'Kode VA tidak ditemukan atau bukan milik Anda');
         }
 
         if ($virtualAccount->status === 'paid') {
-            return back()->with('error', 'VA ini sudah dibayar');
+            return redirect()->route('payment.index')->with('error', 'VA ini sudah dibayar');
         }
 
         if ($virtualAccount->expired_at < now()) {
-            return back()->with('error', 'VA ini sudah kadaluarsa');
+            return redirect()->route('payment.index')->with('error', 'VA ini sudah kadaluarsa');
         }
 
         return view('payment.confirm', compact('virtualAccount'));

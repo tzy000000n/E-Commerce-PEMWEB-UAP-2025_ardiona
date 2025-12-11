@@ -12,11 +12,12 @@ class UserSeeder extends Seeder
     {
         // Hapus data lama terlebih dahulu
         User::query()->delete();
-        
+
+        // 1 Admin
         // 1 Admin
         User::create([
             'name' => 'Admin User',
-            'email' => 'admin@ecommerce.com',
+            'email' => 'admin@dksupplyco.com',
             'password' => Hash::make('password'),
             'role' => 'admin',
             'phone_number' => '081234567890',
@@ -45,7 +46,7 @@ class UserSeeder extends Seeder
         // 1 Customer for testing
         User::create([
             'name' => 'Customer Test',
-            'email' => 'customer@ecommerce.com',
+            'email' => 'customer@dksupplyco.com',
             'password' => Hash::make('password'),
             'role' => 'member',
             'phone_number' => '081234567893',

@@ -56,7 +56,7 @@
                             </div>
 
                             <div>
-                                <label for="short_description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Singkat</label>
+                                <label for="short_description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Singkat (EN)</label>
                                 <input type="text" name="short_description" id="short_description" value="{{ old('short_description', $product->short_description) }}" 
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
                                 @error('short_description')
@@ -64,11 +64,29 @@
                                 @enderror
                             </div>
 
+                             <div>
+                                <label for="short_description_id" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Singkat (ID)</label>
+                                <input type="text" name="short_description_id" id="short_description_id" value="{{ old('short_description_id', $product->short_description_id) }}" 
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                @error('short_description_id')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
                             <div>
-                                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Lengkap</label>
+                                <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Lengkap (EN)</label>
                                 <textarea name="description" id="description" rows="4" 
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>{{ old('description', $product->description) }}</textarea>
                                 @error('description')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                             <div>
+                                <label for="description_id" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Lengkap (ID)</label>
+                                <textarea name="description_id" id="description_id" rows="4" 
+                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ old('description_id', $product->description_id) }}</textarea>
+                                @error('description_id')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -131,26 +149,60 @@
                                         @enderror
                                     </div>
 
-                                    <div class="w-full md:w-1/3 flex flex-col items-center">
+                                    <div class="w-full md:w-2/3 flex flex-col items-center">
                                         <label class="block text-sm font-medium text-gray-700 mb-4">Gambar Saat Ini</label>
                                         
                                         @if($product->productImages->count() > 0)
-                                            <div class="flex flex-wrap gap-4 justify-center">
+                                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                                                 @foreach($product->productImages as $image)
-                                                    <div class="relative group">
+                                                    <div class="relative group bg-gray-50 p-2 rounded-lg border">
                                                         <img src="{{ asset($image->image) }}" alt="Product Image" 
-                                                             class="w-40 h-40 object-cover rounded-xl border shadow-md hover:shadow-lg transition-shadow duration-200">
+                                                             class="w-full h-32 object-cover rounded shadow-sm mb-2">
                                                         
                                                         @if($image->is_thumbnail)
-                                                            <span class="absolute -top-3 -right-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full shadow-sm z-10">
+                                                            <div class="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full shadow z-10 font-bold">
+                                                                Main
+                                                            </div>
+                                                            <div class="text-center text-xs text-green-600 font-bold p-1 bg-green-50 rounded">
                                                                 Thumbnail
-                                                            </span>
+                                                            </div>
+                                                        @else
+                                                            <div class="flex gap-1 justify-between mt-2">
+                                                                <!-- Set Thumbnail Button -->
+                                                                <button type="submit" form="set-thumbnail-{{ $image->id }}"
+                                                                    class="flex-1 text-xs bg-indigo-100 text-indigo-700 py-1 px-2 rounded hover:bg-indigo-200"
+                                                                    title="Jadikan Thumbnail">
+                                                                    Set Main
+                                                                </button>
+                                                                
+                                                                <!-- Delete Button -->
+                                                                <button type="submit" form="delete-image-{{ $image->id }}"
+                                                                    class="text-xs bg-red-100 text-red-700 py-1 px-2 rounded hover:bg-red-200"
+                                                                    onclick="return confirm('Hapus gambar ini?')"
+                                                                    title="Hapus Gambar">
+                                                                    Del
+                                                                </button>
+                                                            </div>
                                                         @endif
                                                     </div>
                                                 @endforeach
                                             </div>
+
+                                            {{-- Forms for Actions (Outside loop to prevent nesting issues) --}}
+                                            @foreach($product->productImages as $image)
+                                                @if(!$image->is_thumbnail)
+                                                    <form id="set-thumbnail-{{ $image->id }}" action="{{ route('seller.products.image.thumbnail', $image->id) }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                    </form>
+                                                    <form id="delete-image-{{ $image->id }}" action="{{ route('seller.products.image.delete', $image->id) }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                @endif
+                                            @endforeach
                                         @else
-                                            <div class="py-8 px-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center w-full">
+                                            <div class="py-12 px-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center w-full">
                                                 <p class="text-sm text-gray-400">Belum ada gambar</p>
                                             </div>
                                         @endif

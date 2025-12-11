@@ -35,6 +35,12 @@ class ProductCategorySeeder extends Seeder
                 'description' => 'Hats, bags, and accessories to complement your style',
                 'image' => 'https://via.placeholder.com/300x200.png?text=Accessories',
             ],
+            [
+                'name' => 'Footwear',
+                'tagline' => 'Step Up Your Game',
+                'description' => 'Comfortable and stylish sneakers for every step',
+                'image' => 'https://via.placeholder.com/300x200.png?text=Footwear',
+            ],
         ];
 
         foreach ($categories as $category) {

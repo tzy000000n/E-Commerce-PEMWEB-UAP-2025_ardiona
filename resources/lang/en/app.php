@@ -2,18 +2,18 @@
 
 return [
     // Navigation
-    'home' => 'HOME',
-    'shop' => 'SHOP',
-    'admin' => 'ADMIN',
-    'seller' => 'SELLER',
-    'history' => 'HISTORY',
-    'wallet' => 'WALLET',
-    'register_store' => 'REGISTER STORE',
+    'home' => 'Home',
+    'shop' => 'Shop',
+    'admin' => 'Admin',
+    'seller' => 'Seller',
+    'history' => 'History',
+    'wallet' => 'Wallet',
+    'register_store' => 'Register Store',
     'login' => 'Login',
     'register' => 'Register',
     'profile' => 'Profile',
     'logout' => 'Log Out',
-    
+
     // Home Page
     'premium_streetwear' => 'Premium Streetwear Collection',
     'shop_now' => 'Shop Now',
@@ -21,7 +21,7 @@ return [
     'discover_collection' => 'Discover our latest collection',
     'show_all_products' => 'Show All Products',
     'stock' => 'Stock',
-    
+
     // Shop Page
     'filter_products' => 'Filter Products',
     'search_product' => 'Search Product',
@@ -31,7 +31,7 @@ return [
     'search' => 'Search',
     'showing_products' => 'Showing :count products',
     'no_products' => 'No products found',
-    
+
     // Product Detail
     'product_description' => 'Product Description',
     'condition' => 'Condition',
@@ -41,7 +41,7 @@ return [
     'store' => 'Store',
     'buy_now' => 'Buy Now',
     'out_of_stock' => 'Out of Stock',
-    
+
     // Checkout
     'checkout' => 'Checkout',
     'product' => 'Product',
@@ -51,13 +51,14 @@ return [
     'payment_method' => 'Payment Method',
     'wallet_balance' => 'Wallet Balance',
     'process_order' => 'Process Order',
-    
+
     // Wallet
     'topup_wallet' => 'Top Up Wallet',
     'current_balance' => 'Current Balance',
     'topup_amount' => 'Top Up Amount',
     'topup_now' => 'Top Up Now',
-    
+    'min_topup' => 'Min Rp 10.000',
+
     // History
     'transaction_history' => 'Transaction History',
     'transaction_code' => 'Transaction Code',
@@ -70,18 +71,158 @@ return [
     'shipped' => 'Shipped',
     'completed' => 'Completed',
     'cancelled' => 'Cancelled',
-    
+
     // Footer
     'established_by' => 'Est. by Dion & Kheiza',
     'all_rights_reserved' => 'All rights reserved.',
-    
+
     // Messages
     'success' => 'Success',
     'error' => 'Error',
     'welcome' => 'Welcome',
-    
-    // Search
-    'search_products' => 'Search products...',
-    'all_categories' => 'All Categories',
-    'close' => '✕',
+
+    // Withdrawal
+    'balance_and_withdraw' => 'Balance & Withdrawal',
+    'active_balance' => 'Active Balance',
+    'request_withdrawal' => 'Request Withdrawal',
+    'withdrawal_amount' => 'Withdrawal Amount',
+    'min_withdrawal' => 'Min Rp 50.000',
+    'bank_name' => 'Bank Name',
+    'select_bank' => 'Select Bank',
+    'account_number' => 'Account Number',
+    'account_name' => 'Account Name',
+    'withdraw_funds' => 'Withdraw Funds',
+    'withdrawal_history' => 'Withdrawal History',
+    'amount' => 'Amount',
+    'destination' => 'Destination',
+    'approved' => 'Approved',
+    'rejected' => 'Rejected',
+    'no_withdrawal_history' => 'No withdrawal history yet',
+
+    // Order Management
+    'order_management' => 'Order Management',
+    'order_id' => 'Order ID',
+    'customer' => 'Customer',
+    'items' => 'Items',
+    'total_price' => 'Total Price',
+    'shipping_status' => 'Shipping Status',
+    'tracking_number' => 'Tracking Number',
+    'update_tracking' => 'Update Tracking Number',
+    'no_orders' => 'No orders found',
+    'order_details' => 'Order Details',
+    'shipping_info' => 'Shipping Information',
+    'shipping_address' => 'Shipping Address',
+    'shipping_type' => 'Shipping Type',
+    'shipping_cost' => 'Shipping Cost',
+
+    // Admin
+    'admin_dashboard' => 'Admin Dashboard',
+    'store_verification' => 'Store Verification',
+    'user_management' => 'User Management',
+    'store_management' => 'Store Management',
+    'withdrawal_management' => 'Withdrawal Management',
+    'verify_store' => 'Verify Store',
+    'approve' => 'Approve',
+    'reject' => 'Reject',
+    'confirm_approve' => 'Approve this withdrawal?',
+    'confirm_reject' => 'Reject this withdrawal? Balance will be refunded.',
+    'processed' => 'Processed',
+    'owner' => 'Owner',
+    'confirm_reject_store' => 'Are you sure you want to reject this store?',
+    'no_unverified_stores' => 'No stores pending verification',
+    'list_users' => 'List All Users',
+    'list_stores' => 'List All Stores',
+    'has_store' => 'Has Store',
+    'registered' => 'Registered',
+    'no_users' => 'No users found',
+    'verified' => 'Verified',
+    'waiting_verification' => 'Waiting Verification',
+    'no_logo' => 'No Logo',
+    'role' => 'Role',
+    'name' => 'Name',
+    'email' => 'Email',
+    'id' => 'ID',
+    'logo' => 'Logo',
+
+    // Checkout & Payment
+    'checkout_title' => 'Checkout',
+    'full_address' => 'Full Address',
+    'city' => 'City',
+    'postal_code' => 'Postal Code',
+    'select_shipping' => 'Select Shipping',
+    'regular' => 'Regular',
+    'express' => 'Express',
+    'same_day' => 'Same Day',
+    'wallet_method' => 'Wallet Balance',
+    'your_balance' => 'Your Balance',
+    'va_method' => 'Virtual Account',
+    'pay_via_bank' => 'Pay via bank transfer',
+    'order_summary' => 'Order Summary',
+    'subtotal' => 'Subtotal',
+    'shipping_fee' => 'Shipping Fee',
+    'tax' => 'Tax',
+    'pay_process' => 'Process Payment',
+
+    // History Detail
+    'transaction_detail' => 'Transaction Detail',
+    'payment_status' => 'Payment Status',
+    'paid' => 'Paid',
+    'unpaid' => 'Unpaid',
+    'products' => 'Products',
+    'item_deleted' => 'Product Deleted',
+    'product_unavailable' => 'Product unavailable',
+    'give_review' => 'Give Review',
+    'rating' => 'Rating',
+    'your_review' => 'Your Review',
+    'write_experience' => 'Write your experience...',
+    'cancel' => 'Cancel',
+    'submit_review' => 'Submit Review',
+    'review_sent' => 'Review Sent',
+    'pay_now' => 'Pay Now',
+    'va_code' => 'Virtual Account Code',
+    'copy_va_desc' => 'Copy VA code to make payment',
+    'copy' => 'Copy',
+
+    // Payment Confirmation
+    'payment_confirmation' => 'Payment Confirmation',
+    'va_review_code' => 'VA Review Code',
+    'transaction_type' => 'Transaction Type',
+    'payment_order' => 'Order Payment',
+    'bill_total' => 'Bill Total',
+    'enter_payment_amount' => 'Enter Payment Amount',
+    'simulation_info' => 'Payment simulation: Enter amount matching the bill',
+    'cancel_return' => 'Cancel & Return to Home',
+
+    // Wallet Top Up
+    'topup_instructions' => 'How to Top Up:',
+    'topup_step_1' => 'Enter the amount you want to top up',
+    'topup_step_2' => 'The system will generate a Virtual Account',
+    'topup_step_3' => 'Transfer the exact amount to the VA provided',
+    'topup_step_4' => 'Balance will be automatically added after payment confirmation',
+
+    // Store Register
+    'register_store_title' => 'Register as Seller',
+    'store_name' => 'Store Name',
+    'store_logo' => 'Store Logo',
+    'about_store' => 'About Store',
+    'phone_number' => 'Phone Number',
+    'register_store_btn' => 'Register Store',
+
+    // Category Management
+    'no_categories' => 'No categories found',
+    'confirm_delete' => 'Are you sure you want to delete this?',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'add_category' => 'Add Category',
+    'icon' => 'Icon',
+    'update_category' => 'Update Category',
+    'category_name' => 'Category Name',
+    'add_product' => 'Add Product',
+    'financial_dashboard' => 'Financial Dashboard',
+    'total_balance' => 'Total Balance',
+    'description' => 'Description',
+    'type' => 'Type',
+    'income' => 'Income',
+    'expense' => 'Expense',
+    'no_transaction_history' => 'No transaction history available',
 ];

@@ -35,6 +35,7 @@ Route::get('/language/{locale}', function ($locale) {
 Route::middleware('auth')->group(function () {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::post('/payment/check', [PaymentController::class, 'check'])->name('payment.check');
+    Route::get('/payment/confirm/{va_number}', [PaymentController::class, 'showConfirm'])->name('payment.show_confirm');
     Route::post('/payment/confirm', [PaymentController::class, 'confirm'])->name('payment.confirm');
 });
 
@@ -46,6 +47,7 @@ Route::middleware(['auth', 'member'])->group(function () {
     Route::get('/history/{id}', [TransactionController::class, 'show'])->name('history.show');
     Route::get('/wallet/topup', [WalletController::class, 'topup'])->name('wallet.topup');
     Route::post('/wallet/topup', [WalletController::class, 'storeTopup'])->name('wallet.topup.store');
+    Route::post('/reviews', [App\Http\Controllers\Customer\ProductReviewController::class, 'store'])->name('reviews.store');
 });
 
 // Store Registration (untuk member yang belum punya toko)
@@ -58,16 +60,22 @@ Route::middleware(['auth', 'member'])->group(function () {
 Route::middleware(['auth', 'seller'])->prefix('seller')->name('seller.')->group(function () {
     Route::get('/profile', [StoreController::class, 'edit'])->name('profile');
     Route::put('/profile', [StoreController::class, 'update'])->name('profile.update');
-    
+    Route::delete('/profile', [StoreController::class, 'destroy'])->name('profile.destroy');
+
     Route::resource('categories', CategoryController::class);
+
+    // Product Image Management
+    Route::delete('/products/image/{id}', [SellerProductController::class, 'deleteImage'])->name('products.image.delete');
+    Route::patch('/products/image/{id}/thumbnail', [SellerProductController::class, 'setThumbnail'])->name('products.image.thumbnail');
+
     Route::resource('products', SellerProductController::class);
-    
+
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
     Route::put('/orders/{id}', [OrderController::class, 'update'])->name('orders.update');
-    
+
     Route::get('/balance', [BalanceController::class, 'index'])->name('balance.index');
-    
+
     Route::get('/withdrawals', [WithdrawalController::class, 'index'])->name('withdrawals.index');
     Route::post('/withdrawals', [WithdrawalController::class, 'store'])->name('withdrawals.store');
 });
@@ -77,9 +85,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/verification', [StoreVerificationController::class, 'index'])->name('verification.index');
     Route::post('/verification/{id}/approve', [StoreVerificationController::class, 'approve'])->name('verification.approve');
     Route::post('/verification/{id}/reject', [StoreVerificationController::class, 'reject'])->name('verification.reject');
-    
+
     Route::get('/users', [UserManagementController::class, 'index'])->name('users.index');
     Route::get('/stores', [UserManagementController::class, 'stores'])->name('stores.index');
+
+    // Admin Withdrawals
+    Route::get('/withdrawals', [\App\Http\Controllers\Admin\WithdrawalController::class, 'index'])->name('withdrawals.index');
+    Route::put('/withdrawals/{id}', [\App\Http\Controllers\Admin\WithdrawalController::class, 'updateStatus'])->name('withdrawals.update');
 });
 
 Route::get('/dashboard', function () {
@@ -92,4 +104,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
