@@ -1,0 +1,19 @@
+<svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="60" fill="none"/>
+  
+  <!-- DK Text -->
+  <text x="60" y="28" text-anchor="middle" 
+        font-family="Arial Black, sans-serif" 
+        font-size="24" 
+        font-weight="900" 
+        fill="currentColor">DK</text>
+  
+  <!-- SUPPLY CO. Text -->
+  <text x="60" y="45" text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="8" 
+        font-weight="600" 
+        letter-spacing="2" 
+        fill="currentColor">SUPPLY CO.</text>
+</svg>

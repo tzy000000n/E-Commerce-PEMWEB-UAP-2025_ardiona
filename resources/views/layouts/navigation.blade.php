@@ -199,6 +199,16 @@
             background: #f3f4f6 !important;
         }
 
+        /* DK Supply Co. Logo */
+        .dk-logo {
+            filter: {{ request()->routeIs('home') ? 'brightness(0) invert(1)' : 'brightness(0) invert(0.2)' }} !important;
+            transition: filter 0.3s ease;
+        }
+
+        #navbar.scrolled .dk-logo {
+            filter: brightness(0) invert(0.2) !important;
+        }
+
         /* Dropdown menu content */
         nav [role="menu"] a,
         nav [role="menu"] button,
@@ -251,7 +261,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <x-application-logo class="block h-9 w-auto" />
                     </a>
                 </div>
 
