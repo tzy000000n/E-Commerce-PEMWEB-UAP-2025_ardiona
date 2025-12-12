@@ -129,7 +129,7 @@
                             </div>
                             <div class="p-4">
                                 <h3 class="font-bold text-lg mb-2 truncate text-gray-800">{{ $product->name }}</h3>
-                                <p class="text-sm text-gray-500 mb-3">{{ $product->short_description }}</p>
+                                <p class="text-sm text-gray-500 mb-3">{{ $product->localized_short_description }}</p>
                                 <div class="flex items-center justify-between">
                                     <p class="text-2xl font-bold price-tag">Rp
                                         {{ number_format($product->price, 0, ',', '.') }}</p>
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="p-4">
                                     <h3 class="font-bold text-lg mb-2 truncate text-gray-800">{{ $product->name }}</h3>
-                                    <p class="text-sm text-gray-500 mb-3">{{ $product->short_description }}</p>
+                                    <p class="text-sm text-gray-500 mb-3">{{ $product->localized_short_description }}</p>
                                     <div class="flex items-center justify-between">
                                         <p class="text-2xl font-bold price-tag">Rp
                                             {{ number_format($product->price, 0, ',', '.') }}</p>

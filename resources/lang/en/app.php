@@ -40,6 +40,7 @@ return [
     'weight' => 'Weight',
     'store' => 'Store',
     'buy_now' => 'Buy Now',
+    'login_to_buy' => 'Login to Purchase',
     'out_of_stock' => 'Out of Stock',
 
     // Checkout
@@ -80,6 +81,9 @@ return [
     'success' => 'Success',
     'error' => 'Error',
     'welcome' => 'Welcome',
+    'close' => 'Close',
+    'search_products' => 'Search products...',
+    'all_categories' => 'All Categories',
 
     // Withdrawal
     'balance_and_withdraw' => 'Balance & Withdrawal',

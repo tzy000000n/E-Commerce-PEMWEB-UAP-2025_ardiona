@@ -40,6 +40,7 @@ return [
     'weight' => 'Berat',
     'store' => 'Toko',
     'buy_now' => 'Beli Sekarang',
+    'login_to_buy' => 'Login untuk Membeli',
     'out_of_stock' => 'Stok Habis',
 
     // Checkout
@@ -80,6 +81,9 @@ return [
     'success' => 'Berhasil',
     'error' => 'Gagal',
     'welcome' => 'Selamat Datang',
+    'close' => 'Tutup',
+    'search_products' => 'Cari produk...',
+    'all_categories' => 'Semua Kategori',
 
     // Withdrawal
     'balance_and_withdraw' => 'Saldo & Penarikan',

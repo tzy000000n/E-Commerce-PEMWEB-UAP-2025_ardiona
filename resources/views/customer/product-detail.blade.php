@@ -49,13 +49,13 @@
                             </div>
 
                             <div class="mb-4">
-                                <p class="text-gray-600"><span class="font-semibold">Kategori:</span>
+                                <p class="text-gray-600"><span class="font-semibold">{{ __('app.category') }}:</span>
                                     {{ $product->productCategory->name }}</p>
-                                <p class="text-gray-600"><span class="font-semibold">Kondisi:</span>
-                                    {{ ucfirst($product->condition) }}</p>
-                                <p class="text-gray-600"><span class="font-semibold">Berat:</span>
+                                <p class="text-gray-600"><span class="font-semibold">{{ __('app.condition') }}:</span>
+                                    {{ __('app.' . $product->condition) }}</p>
+                                <p class="text-gray-600"><span class="font-semibold">{{ __('app.weight') }}:</span>
                                     {{ $product->weight }}g</p>
-                                <p class="text-gray-600"><span class="font-semibold">Stok:</span> {{ $product->stock }}
+                                <p class="text-gray-600"><span class="font-semibold">{{ __('app.stock') }}:</span> {{ $product->stock }}
                                 </p>
                             </div>
 
@@ -72,16 +72,16 @@
                                             class="w-20 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                         <button type="submit"
                                             class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold">
-                                            Beli Sekarang
+                                            {{ __('app.buy_now') }}
                                         </button>
                                     </form>
                                 @else
-                                    <p class="text-red-600 font-semibold">Stok Habis</p>
+                                    <p class="text-red-600 font-semibold">{{ __('app.out_of_stock') }}</p>
                                 @endif
                             @else
                                 <a href="{{ route('login') }}"
                                     class="block text-center px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-semibold">
-                                    Login untuk Membeli
+                                    {{ __('app.login_to_buy') }}
                                 </a>
                             @endauth
                         </div>

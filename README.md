@@ -1,132 +1,306 @@
-# **Ujian Praktikum Pemrograman Web Aplikasi E-Commerce (Laravel)** 
+# DK Supply Co. - E-Commerce Platform
 
-## **Konteks Proyek**
+**Premium Streetwear Collection**  
+*Est. by Dion & Kheiza*
 
-Kalian diberikan sebuah repositori proyek Laravel 12 yang sudah dilengkapi dengan:
+## 📋 Project Overview
 
-1. Starter Kit **Laravel Breeze** untuk basic autentikasi.  
-2. Semua file **Migrations** yang diperlukan untuk membuat struktur database e-commerce (tabel users, products, transactions, stores, etc.).
+DK Supply Co. adalah platform e-commerce modern yang mengkhususkan diri dalam koleksi streetwear premium. Platform ini dibangun menggunakan Laravel 12 dengan fitur multi-seller, multi-language support, dan sistem manajemen yang komprehensif.
 
-**Tugas utama Kalian** adalah membangun web aplikasi full-stack E-Commerce yang fungsional (CRUD) berdasarkan skema database yang disediakan, dengan implementasi khusus pada Role Based Access Control (RBAC) dan Flow Pembayaran.
+## 🚀 Key Features
 
-## **Struktur Database**
+### 🛍️ E-Commerce Core
+- **Multi-Seller Platform**: Dua toko utama (Dion Store & Kheiza Store)
+- **Product Management**: 15 produk premium across 5 kategori
+- **Shopping Cart & Checkout**: Sistem keranjang belanja terintegrasi
+- **Payment System**: Sistem pembayaran dengan wallet digital
+- **Order Management**: Tracking pesanan dan riwayat transaksi
 
-![alt text](arsitektur-database.png)
+### 🌐 Multi-Language Support
+- **Indonesian (Default)**: Bahasa utama platform
+- **English**: Bahasa alternatif
+- **Dynamic Language Switcher**: Flag-based language selection
+- **Session-based Locale**: Preferensi bahasa tersimpan per sesi
 
-## **Persyaratan Teknis & Setup Awal**
+### 👥 Role-Based Access Control
+- **Admin**: Manajemen penuh sistem, verifikasi toko, manajemen user
+- **Seller**: Manajemen produk, toko, dan pesanan
+- **Customer**: Shopping, checkout, wallet management
 
-1. **Framework:** Laravel 12\.  
-2. Jalankan **`composer install`** untuk menginstal seluruh dependensi PHP yang dibutuhkan.  
-3. Salin file **`.env.example`** menjadi **`.env`**, lalu edit pengaturan database sesuai server database Kalian  
-4. Jalankan **`php artisan key:generate`** untuk menghasilkan application key baru  
-5. **Database:** Terapkan semua *file* *migration* yang telah disediakan (**`php artisan migrate`**).  
-6. **Seeder:** Kalian **wajib** membuat *Database Seeder* untuk membuat data awal. Silahkan lakukan langkah ini pada folder `database/seeders` dan buat file seeder sesuai tabel dengan data yang diperlukan, minimal:  
-   * Satu pengguna dengan role: 'admin'.  
-   * Dua pengguna dengan role: 'member'.  
-   * Satu Toko (stores) yang dimiliki oleh salah satu member.  
-   * Lima Kategori Produk (product\_categories).  
-   * Sepuluh Produk (products) yang dijual oleh Toko tersebut.  
-7. Jalankan **`php artisan serve`** untuk menjalankan development server  
-8. Buka terminal lain dan jalankan **`npm install && npm run build`** untuk menginstal package Node yang diperlukan.  
-9. Jalankan **`npm run dev`** untuk meng-compile asset dalam mode development  
-10. Buka browser dan akses [**http://localhost:**](http://localhost:8000)`{PORT}` untuk melihat aplikasi
+### 🎨 Modern UI/UX
+- **Hero Section**: Full viewport dengan video support
+- **Responsive Design**: Mobile-first approach
+- **Transparent Navbar**: Dynamic styling berdasarkan halaman
+- **Product Cards**: Clean design dengan short descriptions
+- **Admin Dashboard**: Comprehensive management interface
 
-## **Tantangan Khusus (*Challenge*)**
+## 🏪 Store Structure
 
-Implementasi Kalian harus mencakup tiga tantangan inti berikut:
+### **DK Supply Co. - Dion Store**
+- **Owner**: Dion (dion@dksupplyco.com)
+- **Specialization**: Mixed Collection (All Categories)
+- **Location**: Jl. Kemang Raya No. 45, Jakarta Selatan
+- **Products**: 8 items (2 Outerwear + 1 T-Shirts + 2 Bottoms + 2 Footwear + 1 Accessories)
 
-### **1\. Role Based Access Control (RBAC)**
+### **DK Supply Co. - Kheiza Store**
+- **Owner**: Kheiza (kheiza@dksupplyco.com)
+- **Specialization**: Mixed Collection (All Categories)
+- **Location**: Jl. Senopati No. 78, Jakarta Selatan
+- **Products**: 7 items (1 Outerwear + 1 T-Shirts + 1 Bottoms + 2 Footwear + 2 Accessories)
 
-Batasi akses ke halaman tertentu berdasarkan peran pengguna.
+## 📦 Product Categories & Inventory
 
-| Peran (users.role) | Akses ke Halaman | Aturan Akses |
-| :---- | :---- | :---- |
-| **Admin** | Halaman Admin. | Akses penuh ke menu admin. |
-| **Seller/Penjual** | Dasbor Penjual. | Wajib memiliki role: 'member' **DAN** wajib memiliki entri di tabel stores. |
-| **Member/Customer** | Halaman Pelanggan. | Akses ke halaman pembelian dan riwayat. |
+### 1. **Outerwear** (3 products)
+- **Dion Store**: DK Legacy Varsity Jacket (Rp 1,899,000), Midnight Rider Leather Jacket (Rp 2,499,000)
+- **Kheiza Store**: Urban Ops Bomber Hoodie (Rp 1,599,000)
 
-### 
+### 2. **T-Shirts** (2 products)
+- **Dion Store**: DK Legacy Cherub Tee (Rp 599,000)
+- **Kheiza Store**: Renaissance Washed Tee (Rp 599,000)
 
-### **2\. Implementasi Sistem Keuangan (User Wallet & VA)**
+### 3. **Bottoms** (3 products)
+- **Dion Store**: DK Brutalist Concrete Tech-Pants (Rp 1,299,000), Wasteland Grunge Cargo (Rp 1,199,000)
+- **Kheiza Store**: DK Obsidian Panel Leather Pants (Rp 1,799,000)
 
-Kalian harus membuat **Tabel Baru** bernama **user\_balances** (untuk *user wallet*/saldo) dan mengimplementasikan dua skema pembayaran:
+### 4. **Footwear** (4 products)
+- **Dion Store**: The Maroon Chunky Sneaker (Rp 1,599,000), The Tan Leather Boot (Rp 2,199,000)
+- **Kheiza Store**: The Brown Cut-Out Heel (Rp 1,899,000), The Pink Chunky Sneaker (Rp 1,299,000)
 
-| Skema Pembayaran | Flow Penggunaan |
-| :---- | :---- |
-| **Opsi A: Bayar dengan Saldo (*Wallet*)** | Pelanggan dapat *Topup* Saldo terlebih dahulu (melalui VA). Saat *checkout*, saldo user\_balances akan langsung dipotong. |
-| **Opsi B: Bayar Langsung (Transfer VA)** | Saat *checkout* produk, sistem akan membuat kode **Virtual Account (VA) yang unik** yang terkait langsung dengan transaction\_id. |
+### 5. **Accessories** (3 products)
+- **Dion Store**: DK Owners Club Varsity Cap (Rp 399,000)
+- **Kheiza Store**: DK Shadow Camo Beanie (Rp 299,000), Rebel Silver Wallet Chain (Rp 499,000)
 
-### 
+**Total Products**: 15 items across 5 categories
 
-### **3\. Halaman Pembayaran Terpusat (*Dedicated Payment Page*)**
+## 🔧 Technical Stack
 
-Buat satu halaman/fitur untuk memproses konfirmasi pembayaran VA dari Opsi A (*Topup*) dan Opsi B (Pembelian Langsung).
+### Backend
+- **Framework**: Laravel 12
+- **Database**: MySQL with multi-language columns
+- **Authentication**: Laravel Breeze with role-based middleware
+- **Middleware**: Custom role-based access control (Admin, Seller, Customer)
+- **Localization**: Complete multi-language support with session management
+- **Asset Management**: Vite for modern asset compilation
 
-* **Flow:** Pengguna mengakses halaman Payment \-\> Masukkan Kode VA \-\> Sistem menampilkan detail (jumlah yang harus dibayar) \-\> Pengguna memasukkan nominal transfer (simulasi) \-\> Konfirmasi Pembayaran.  
-* Jika sukses, sistem akan:  
-  * **Untuk Topup:** Menambahkan saldo ke user\_balances.  
-  * **Untuk Pembelian:** Mengubah transactions.payment\_status menjadi paid **dan** menambahkan dana ke store\_balances penjual.
+### Frontend
+- **Styling**: Tailwind CSS with custom components
+- **JavaScript**: Vanilla JS with Alpine.js integration
+- **UI Components**: Blade templates with localization support
+- **Responsive**: Mobile-first design approach
+- **Language Switching**: Dynamic content switching without page reload
 
-## **Fitur yang Harus Diimplementasikan (Berdasarkan Halaman)**
+### Database Architecture
+- **Users**: Role-based user management (admin, seller, member)
+- **Stores**: Multi-seller store system with verification
+- **Products**: Comprehensive product management with dual-language support
+- **Transactions**: Complete order and payment tracking
+- **Reviews**: Product review and rating system
+- **Balances**: Wallet and store balance management with withdrawal system
+- **Localization**: Separate columns for Indonesian translations
 
-Implementasikan fungsionalitas CRUD untuk setiap peran:
+## 🚀 Installation & Setup
 
-### **I. Halaman Pengguna (Customer Side)**
+### Prerequisites
+- PHP 8.2+
+- Composer
+- Node.js & NPM
+- MySQL
+- XAMPP/LARAGON (recommended for Windows)
 
-| Halaman | Fungsionalitas Wajib |
-| :---- | :---- |
-| **Homepage** (/) | Menampilkan daftar **semua produk** yang tersedia. **Filter** berdasarkan product\_categories. |
-| **Halaman Produk** (/product/{slug}) | Menampilkan detail produk, semua product\_images, nama store, product\_reviews, dan tombol **"Beli"**. |
-| **Checkout** (/checkout) | Proses pengisian alamat, pemilihan *shipping* (shipping\_type, kalkulasi shipping\_cost), pemilihan Opsi Pembayaran (Saldo / Transfer VA). Membuat entri di transactions dan transaction\_details. |
-| **Riwayat Transaksi** (/history) | Melihat daftar transactions yang pernah dilakukan. Dapat melihat detail produk yang dibeli (transaction\_details). |
-| **Topup Saldo** (/wallet/topup) | Mengajukan *topup* saldo pribadi. Menghasilkan VA unik. |
+### Installation Steps
 
-### 
+1. **Clone Repository**
+```bash
+git clone https://github.com/tzy000000n/E-Commerce-PEMWEB-UAP-2025_ardiona.git
+cd E-Commerce-PEMWEB-UAP-2025_ardiona
+```
 
-### **II. Halaman Toko (Seller Dashboard)**
+2. **Install Dependencies**
+```bash
+composer install
+npm install
+```
 
-Halaman ini hanya dapat diakses oleh *Member* yang sudah mendaftar sebagai Toko.
+3. **Environment Setup**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-| Halaman | Fungsionalitas Wajib |
-| :---- | :---- |
-| **Pendaftaran Toko** (/store/register) | CRUD untuk membuat profil Toko (mengisi stores.name, logo, about, dll.). |
-| **Manajemen Toko** (/seller/profile) | CRUD untuk mengelola (update/delete) data Toko dan detail rekening bank. |
-| **Manajemen Kategori** (/seller/categories) | **CRUD** untuk product\_categories. |
-| **Manajemen Produk** (/seller/products) | **CRUD** untuk products dan product\_images (termasuk penKalianan is\_thumbnail). |
-| **Manajemen Pesanan** (/seller/orders) | Melihat daftar pesanan masuk (transactions). Mengubah status pesanan dan mengisi tracking\_number. |
-| **Saldo Toko** (/seller/balance) | Melihat saldo saat ini (store\_balances.balance) dan riwayat saldo (store\_balance\_histories). |
-| **Penarikan Dana** (/seller/withdrawals) | Mengajukan Penarikan dana (membuat entri di withdrawals) dan melihat riwayat withdrawals. |
+4. **Database Configuration**
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=e_commerce_uap
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-### 
+5. **Database Migration & Seeding**
+```bash
+php artisan migrate:fresh --seed
+```
 
-### **III. Halaman Admin (Admin Only)**
+6. **Install Frontend Dependencies**
+```bash
+npm install
+```
 
-Halaman ini hanya dapat diakses oleh pengguna dengan role: 'admin'.
+7. **Asset Compilation**
+```bash
+npm run dev
+# or for production
+npm run build
+```
 
-| Halaman | Fungsionalitas Wajib |
-| :---- | :---- |
-| **Verifikasi Toko** (/admin/verification) | Melihat daftar Toko yang belum terverifikasi (is\_verified: false). Fitur untuk **Memverifikasi** atau **Menolak** pendaftaran toko (mengubah stores.is\_verified). |
-| **Manajemen User & Store** (/admin/users) | Melihat dan mengelola daftar semua users dan stores yang terdaftar. |
+8. **Start Development Server**
+```bash
+php artisan serve
+```
 
-## **Penilaian**
+**Access the application**: `http://127.0.0.1:8000`
 
-Persentase nilai dilakukan berdasarkan indikator berikut
+## 👤 Default Login Credentials
 
-* Tampilan 15%  
-* Presentasi Projek 20% (jika nanti memungkinkan)  
-* Penerapan MVC \+ Efisiensi code 15%  
-* Kelengkapan Project sesuai kriteria 50%
+### Admin Account
+- **Email**: admin@dksupplyco.com
+- **Password**: password
+- **Access**: Full system management
 
-Penilaian akan dilakukan berdasarkan commit nya. Semakin banyak dan kompleks yang dilakukan per individu dalam kelompok, bobot nilai yang diberikan akan semakin besar dan berlaku sebaliknya.
+### Seller Accounts
+- **Dion**: dion@dksupplyco.com / password
+- **Kheiza**: kheiza@dksupplyco.com / password
+- **Access**: Store and product management
 
-## **Informasi Tambahan**
+### Customer Account
+- **Email**: customer@dksupplyco.com
+- **Password**: password
+- **Access**: Shopping and wallet features
 
-1. Silahkan fork repositori ini, lalu mulai kerjakan di laptop masing masing dan jangan lupa invite partner kelompok ke dalam repositori.  
-2. Berikan penjelasan aplikasi yang kalian buat sebagaimana readme pada repositori ini dan jangan lupa sertakan nama dan NIM anggota kelompok pada file [readme.md](http://readme.md)  
-3. Dipersilahkan membuat improvisasi pada codingan, library, dan sumber apapun yang dibutuhkan selama tidak merubah arsitektur aplikasi yang diberikan pada poin diatas.  
-4. Jika ada yang kurang dipahami dari perintah soal yang diberikan, feel free untuk menghubungi kami.
+## 🌟 Key Features Detail
+
+### Complete Multi-Language Implementation
+- **Real-time Language Switching**: Content changes instantly without page reload
+- **Database-Level Localization**: Separate columns for Indonesian translations
+- **Comprehensive Coverage**: All UI elements, product descriptions, and user interactions
+- **Session Persistence**: Language preference maintained across browsing session
+- **Flag-based Switcher**: Intuitive country flag interface for language selection
+
+### Multi-Language System
+- **Default Language**: Indonesian (id)
+- **Alternative**: English (en)
+- **Implementation**: Session-based locale switching with fully localized content
+- **Product Descriptions**: Dynamic language switching for all product content (short & long descriptions)
+- **UI Elements**: Flag-based language switcher in navbar with country flags
+- **Login Button**: Localized "Login untuk Membeli" (Indonesian) / "Login to Purchase" (English)
+- **Complete Localization**: All buttons, labels, and content adapt to selected language
+
+### Hero Section
+- **Video Support**: MP4 autoplay with fallback to image
+- **Overlay Text**: "DK" branding with "SUPPLY CO." tagline
+- **Responsive**: Full viewport height (100vh)
+- **Visibility**: White text with shadows for video compatibility
+
+### Navigation System
+- **Dynamic Styling**: Transparent on home, white on other pages
+- **Search Integration**: Expandable search bar
+- **Language Switcher**: Indonesia & English flags
+- **Scroll Effect**: Changes to solid white at 50px scroll
+
+### Product Management
+- **Image Handling**: Local asset paths with `asset()` helper
+- **Dual Language Support**: Complete English & Indonesian descriptions
+- **Dynamic Localization**: Real-time description switching based on session language
+- **Database Structure**: Separate columns for each language (description_id, short_description_id)
+- **Stock Display**: Plain text format (no emojis or backgrounds)
+- **Categories**: 5 main categories distributed across both stores
+- **Store Distribution**: Each store has products in all 5 categories for balanced inventory
+
+## 📱 Responsive Design
+
+### Mobile-First Approach
+- **Breakpoints**: Tailwind CSS responsive utilities
+- **Navigation**: Collapsible mobile menu
+- **Product Grid**: Adaptive columns (1-2-3-4)
+- **Forms**: Single-column layout for mobile
+
+### Desktop Enhancements
+- **Hero Video**: Full-screen video background
+- **Product Grid**: Multi-column layout
+- **Admin Interface**: Comprehensive dashboard
+- **Search**: Expanded search functionality
+
+## 🔒 Security Features
+
+### Authentication & Authorization
+- **Role-Based Access**: Admin, Seller, Customer roles
+- **Middleware Protection**: Route-level access control
+- **Email Verification**: Account verification system
+- **Password Security**: Bcrypt hashing
+
+### Data Protection
+- **CSRF Protection**: Laravel built-in CSRF tokens
+- **SQL Injection Prevention**: Eloquent ORM
+- **XSS Protection**: Blade template escaping
+- **Input Validation**: Form request validation
+
+## 📊 Database Schema
+
+### Core Tables
+- **users**: User management with roles
+- **stores**: Multi-seller store information
+- **product_categories**: 5 main categories
+- **products**: 15 premium products
+- **product_images**: Image management
+- **transactions**: Order tracking
+- **transaction_details**: Order line items
+- **user_balances**: Wallet system
+- **store_balances**: Seller earnings
+
+## 🚀 Recent Updates (December 2025)
+
+### ✅ Completed Features
+- **Complete Multi-Language Support**: Full Indonesian and English localization
+- **Dynamic Product Descriptions**: Real-time language switching for all content
+- **Balanced Product Distribution**: 15 products evenly distributed across both stores
+- **Enhanced User Experience**: Localized buttons and interface elements
+- **Database Optimization**: Dual-language column structure
+- **Asset Pipeline**: Modern Vite build system implementation
+
+### 🎯 Future Enhancements
+
+#### Planned Features
+- **Payment Gateway Integration**: Multiple payment methods (Midtrans, DANA, OVO)
+- **Advanced Search**: Filters and sorting options with autocomplete
+- **Wishlist System**: Save favorite products with user accounts
+- **Enhanced Review System**: Photo reviews and verified purchase badges
+- **Inventory Alerts**: Real-time low stock notifications
+- **Analytics Dashboard**: Comprehensive sales and performance metrics
+
+#### Technical Improvements
+- **API Development**: RESTful API for mobile app integration
+- **Caching System**: Redis implementation for improved performance
+- **Image Optimization**: Automatic image compression and WebP conversion
+- **SEO Optimization**: Meta tags, structured data, and sitemap generation
+- **Progressive Web App**: PWA features for mobile experience
+
+## 👨‍💻 Development Team
+
+### Founders & Developers
+- **Dion**: Co-founder, Full-stack Developer
+- **Kheiza**: Co-founder, Frontend Specialist
+
+### Contact Information
+- **GitHub**: [tzy000000n](https://github.com/tzy000000n)
+- **Email**: ardionamaulana@gmail.com
+- **Project Repository**: [E-Commerce-PEMWEB-UAP-2025_ardiona](https://github.com/tzy000000n/E-Commerce-PEMWEB-UAP-2025_ardiona)
+
+## 📄 License
+
+This project is developed for educational purposes as part of Web Programming Final Project (UAP) 2025.
 
 ---
-![alt text](<No Problem Running GIF by ProBit Global.gif>)
 
-Semangatt, badai pasti berlalu
+**DK Supply Co.** - *Premium Streetwear Collection*  
+*Est. by Dion & Kheiza*
