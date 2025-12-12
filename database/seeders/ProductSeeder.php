@@ -152,30 +152,54 @@ class ProductSeeder extends Seeder
                 'image' => 'images/products/accessories/rebel-wallet-chain.jpg',
             ],
 
-            // KHEIZA NEW PRODUCTS (Store 2)
+            // KHEIZA NEW PRODUCTS (Store 2) - Footwear
             [
                 'store_id' => 2,
-                'product_category_id' => 1, // Outerwear/Sweaters
-                'name' => 'Cream "Dust La Stella" Sweater',
-                'short_description' => 'Textured Cream Knit',
-                'description' => 'Premium oversized cream sweater featuring embossed "Dust La Stella" typography. Soft cotton blend for maximum comfort.',
+                'product_category_id' => 5, // Footwear
+                'name' => 'Kheiza Core Low',
+                'short_description' => 'Minimalist White Sneakers',
+                'description' => 'Clean and minimalist low-top sneakers in pristine white. Crafted from premium vegan leather for effortless daily style.',
                 'condition' => 'new',
-                'price' => 899000,
-                'weight' => 500,
-                'stock' => 50,
-                'image' => 'images/products/kheiza/white-sweater.png',
+                'price' => 799000,
+                'weight' => 800,
+                'stock' => 40,
+                'image' => 'images/products/footwear/kheiza-core-low.jpg',
             ],
             [
                 'store_id' => 2,
-                'product_category_id' => 1, // Outerwear/Sweaters
-                'name' => 'Black "Dust La Stella" Knit',
-                'short_description' => 'Black Graphic Knit',
-                'description' => 'Signature black knitwear with contrasting white "Dust La Stella" script embroidery. A versatile piece for your daily rotation.',
+                'product_category_id' => 5, // Footwear
+                'name' => 'Kheiza Street High',
+                'short_description' => 'Urban High-Tops',
+                'description' => 'Bold high-top sneakers featuring a striking black and red colorway. Designed for durability and street-ready aesthetics.',
                 'condition' => 'new',
-                'price' => 899000,
-                'weight' => 500,
+                'price' => 999000,
+                'weight' => 900,
+                'stock' => 35,
+                'image' => 'images/products/footwear/kheiza-street-high.jpg',
+            ],
+            [
+                'store_id' => 2,
+                'product_category_id' => 5, // Footwear
+                'name' => 'Kheiza Tech Runner',
+                'short_description' => 'Performance Style Runners',
+                'description' => 'Futuristic tech runners in sleek grey. Lightweight mesh construction with responsive cushioning for all-day comfort.',
+                'condition' => 'new',
+                'price' => 1099000,
+                'weight' => 750,
+                'stock' => 30,
+                'image' => 'images/products/footwear/kheiza-tech-runner.jpg',
+            ],
+            [
+                'store_id' => 2,
+                'product_category_id' => 5, // Footwear
+                'name' => 'Kheiza Canvas Slip-On',
+                'short_description' => 'Classic Checkerboard Slip-Ons',
+                'description' => 'Timeless canvas slip-ons featuring a retro checkerboard pattern. Easy to wear and perfect for a laid-back vibe.',
+                'condition' => 'new',
+                'price' => 599000,
+                'weight' => 600,
                 'stock' => 50,
-                'image' => 'images/products/kheiza/black-sweater.png',
+                'image' => 'images/products/footwear/kheiza-canvas-slip.jpg',
             ],
         ];
 
